@@ -50,9 +50,9 @@ lol_format = "Summoner name: {}, level: {}"
 
 @bot.command()
 async def lol_euw(ctx, summoner_name):
-    summoner = json.loads(watcher.summoner.by_name('euw1', summoner_name))
+    summoner = watcher.summoner.by_name('euw1', summoner_name)
 
-    to_send = lol_format.format(summoner.name, summoner.summonerLevel)
+    to_send = lol_format.format(summoner['name'], summoner['summonerLevel']) 
 
     await ctx.send(to_send)
 
@@ -60,7 +60,7 @@ async def lol_euw(ctx, summoner_name):
 async def lol_eune(ctx, summoner_name):
     summoner = watcher.summoner.by_name('eun1', summoner_name)
     
-    to_send = lol_format.format(summoner.name, summoner.summonerLevel) 
+    to_send = lol_format.format(summoner['name'], summoner['summonerLevel']) 
     
     await ctx.send(to_send)
 
